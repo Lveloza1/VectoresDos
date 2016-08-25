@@ -55,8 +55,9 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Ejercicio 2");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Iniciales"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,6 +86,7 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 210, 150));
 
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdPrimos.setText("Mostrar Primos");
@@ -93,13 +95,23 @@ public class principal extends javax.swing.JFrame {
                 cmdPrimosActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdPrimos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 130, 40));
+        jPanel4.add(cmdPrimos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 130, 40));
 
         cmdImpares.setText("Mostrar Impares");
-        jPanel4.add(cmdImpares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 130, 40));
+        cmdImpares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdImparesActionPerformed(evt);
+            }
+        });
+        jPanel4.add(cmdImpares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 130, 40));
 
         cmdPares.setText("Mostrar Pares");
-        jPanel4.add(cmdPares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 130, 40));
+        cmdPares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdParesActionPerformed(evt);
+            }
+        });
+        jPanel4.add(cmdPares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 130, 40));
 
         cmdAutomatico.setText("Llenado Automático");
         cmdAutomatico.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +119,7 @@ public class principal extends javax.swing.JFrame {
                 cmdAutomaticoActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdAutomatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, 40));
+        jPanel4.add(cmdAutomatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 130, 40));
 
         cmdManual.setText("Llenado Manual");
         cmdManual.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +127,7 @@ public class principal extends javax.swing.JFrame {
                 cmdManualActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 130, 40));
+        jPanel4.add(cmdManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, 40));
 
         cmdCrear.setText("Crear");
         cmdCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -123,13 +135,18 @@ public class principal extends javax.swing.JFrame {
                 cmdCrearActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 40));
+        jPanel4.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 130, 40));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 160, 270));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 170, 320));
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel5.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 10, 70, 40));
 
         cmdMostrar.setText("Mostrar");
@@ -142,12 +159,14 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 200, 60));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 420));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 510, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdPrimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPrimosActionPerformed
+//Falta Validar los números primos
+
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdPrimosActionPerformed
 
@@ -235,6 +254,50 @@ else{
 }
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdMostrarActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+    txtLongitud.setText(" ");
+    txtResultado.setText(" ");
+    v=null;
+    txtLongitud.requestFocusInWindow();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void cmdParesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdParesActionPerformed
+ if(txtLongitud.getText().trim().isEmpty()){
+      JOptionPane.showMessageDialog(this,"Digite la longitud del vector","Error",JOptionPane.ERROR_MESSAGE);
+       txtLongitud.requestFocusInWindow();
+       
+        }
+else{
+        double contador=0;
+        for (int i = 0; i < v.length; i++) {
+            if ( v[i]%2==0){
+            contador=contador+1;
+        }
+        }
+            txtResultado.append("Total de Pares:"+contador );
+ }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdParesActionPerformed
+
+    private void cmdImparesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdImparesActionPerformed
+if(txtLongitud.getText().trim().isEmpty()){
+      JOptionPane.showMessageDialog(this,"Digite la longitud del vector","Error",JOptionPane.ERROR_MESSAGE);
+       txtLongitud.requestFocusInWindow();
+       
+        }
+else{
+        double contador=0;
+        for (int i = 0; i < v.length; i++) {
+            if ( v[i]%2!=0){
+            contador=contador+1;
+          }
+        }
+            txtResultado.append("Total de impares:"+contador );
+      }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdImparesActionPerformed
 
     /**
      * @param args the command line arguments
