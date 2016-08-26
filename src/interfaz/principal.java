@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vectoresdos;
+package interfaz;
 
 import javax.swing.JOptionPane;
 
@@ -89,7 +89,7 @@ public class principal extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmdPrimos.setText("Mostrar Primos");
+        cmdPrimos.setText("Total Primos");
         cmdPrimos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdPrimosActionPerformed(evt);
@@ -97,7 +97,7 @@ public class principal extends javax.swing.JFrame {
         });
         jPanel4.add(cmdPrimos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 130, 40));
 
-        cmdImpares.setText("Mostrar Impares");
+        cmdImpares.setText("Total Impares");
         cmdImpares.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdImparesActionPerformed(evt);
@@ -105,7 +105,7 @@ public class principal extends javax.swing.JFrame {
         });
         jPanel4.add(cmdImpares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 130, 40));
 
-        cmdPares.setText("Mostrar Pares");
+        cmdPares.setText("Total Pares");
         cmdPares.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdParesActionPerformed(evt);
@@ -159,14 +159,27 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 200, 60));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 510, 420));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdPrimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPrimosActionPerformed
-//Falta Validar los números primos
-
+ int contador=0, res; 
+        for (int i = 0; i < v.length; i++) {
+           res=0; 
+            for (int j = 1; j <= v[i]; j++) {
+                if (v[i] % j == 0) {
+                    res=res+1;
+                }
+            }
+            if (res == 2) {
+                contador=contador+1;
+            }
+ 
+        }
+        txtResultado.append("Total de primos:" + contador+ "\n");
+   
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdPrimosActionPerformed
 
@@ -195,7 +208,7 @@ public class principal extends javax.swing.JFrame {
       else{
           longitud=Integer.parseInt(txtLongitud.getText().trim());
           v=new double[longitud];
-          JOptionPane.showMessageDialog(this,"El vector ha sido creado exitoxamente");
+          JOptionPane.showMessageDialog(this,"El vector ha sido creado exitosamente");
  
           
       }
@@ -226,10 +239,10 @@ double n, f;
        
         }
     else{
-        f= Double.parseDouble (JOptionPane.showInputDialog(this, "Digite el numero hasta donde quiere el llenado automatico "));
+        f= Double.parseDouble (JOptionPane.showInputDialog(this, "Digite el limite del llenado automatico "));
            while (f<v.length){
-            JOptionPane.showMessageDialog(this, "Digite un numero mayor a : "+v.length);
-            f= Double.parseDouble (JOptionPane.showInputDialog(this, "Digite el numero hasta donde quiere el llenado automatico "));
+            JOptionPane.showMessageDialog(this, "El número no puede ser menor que "+v.length);
+            f= Double.parseDouble (JOptionPane.showInputDialog(this, "Digite el limite del llenado automatico "));
            }
         for (int i = 0; i < v.length; i++) {
             
@@ -276,7 +289,7 @@ else{
             contador=contador+1;
         }
         }
-            txtResultado.append("Total de Pares:"+contador );
+            txtResultado.append("Total de Pares:"+contador+ "\n");
  }
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdParesActionPerformed
@@ -294,7 +307,7 @@ else{
             contador=contador+1;
           }
         }
-            txtResultado.append("Total de impares:"+contador );
+            txtResultado.append("Total de impares:"+contador+"\n" );
       }
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdImparesActionPerformed
